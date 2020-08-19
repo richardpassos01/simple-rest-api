@@ -1,5 +1,5 @@
 const express = require('express');
-const routes = require('./routes');
+const routerConfig = require('./routes');
 const {
     PORT
 } = require('./helper/settings');
@@ -8,7 +8,10 @@ const app = express();
 const port = PORT || 3000;
 
 app.use(express.json());
-app.use(routes);
+
+routerConfig.loadIn();
+
+app.use('/', routerConfig.routes);
 
 app.get('/', (req, res) => res.json('Health check ok'));
 

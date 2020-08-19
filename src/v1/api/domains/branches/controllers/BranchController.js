@@ -1,4 +1,4 @@
-const Mongo = require('./../database/mongo');
+const Mongo = require('./../../../../../database/mongo');
 
 let mongo;
 
@@ -8,11 +8,12 @@ class BranchController {
         this.database = mongo;
     }
 
-    async getBranches({
-        query: {
-            id
-        }
-    }) {
+    async getBranches(req, res) {
+        const {
+            query: {
+                id
+            }
+        } = req;
 
         const {
             Restaurant
@@ -22,10 +23,13 @@ class BranchController {
             _id: id
         } : {};
 
-        return Restaurant.find(queryFilter, {
+        const items = await Restaurant.find(queryFilter, {
             name: 1,
             _id: 0
         });
+
+        res.status(200).json(items);
+
     }
 }
 
