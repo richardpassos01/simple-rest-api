@@ -1,8 +1,11 @@
 const express = require('express');
 const routes = require('./routes');
+const {
+    PORT
+} = require('./helper/settings');
 
 const app = express();
-const port = 3000;
+const port = PORT || 3000;
 
 app.use(express.json());
 app.use(routes);
