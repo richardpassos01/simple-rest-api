@@ -33,6 +33,13 @@ API criada com intuito didático
                 services
                     DomainService.js
 
+# Injeção de dependencia
+    * Este é o conceito de injetar via parametro, algum objeto em uma classe via constructor, por exemplo.
+
+# Clean Code
+    * Escrever o código o mais légivel possivel, prezando não fazer arquivos com muitas linhas de código,
+    pois isso foge das boas práticas de programação. 
+
 
 # Estrutura de roteamento no express
     Para trabalharmos com camadas de dominio, primeiro criamos o arquivo [root na raiz das rotas](./src/routes/index.js).
@@ -41,5 +48,3 @@ API criada com intuito didático
     Ao finalizar a leitura de todos os arquivos criando as rotas, elas são retornadas para o arquivo app.js.
     Depois inserimos essas rotas na nossa aplicação atraves do comando `app.use('/', routerConfig.routes)`
     
-
-# Injeção de dependencia
