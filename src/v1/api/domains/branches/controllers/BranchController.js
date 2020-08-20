@@ -1,11 +1,6 @@
-const Mongo = require('./../../../../../database/mongo');
-
-let mongo;
-
 class BranchController {
-    constructor() {
-        mongo = mongo || new Mongo();
-        this.database = mongo;
+    constructor(params) {
+        this.service = params.service;
     }
 
     async getBranches(req, res) {
@@ -15,20 +10,11 @@ class BranchController {
             }
         } = req;
 
-        const {
-            Restaurant
-        } = await this.database.models();
-
-        const queryFilter = id ? {
-            _id: id
-        } : {};
-
-        const items = await Restaurant.find(queryFilter, {
-            name: 1,
-            _id: 0
-        });
-
-        res.status(200).json(items);
+        return this.service.getBranches({
+                id
+            })
+            .then(data => res.status(200).json(data))
+            .catch(error => console.error(error));
 
     }
 }
