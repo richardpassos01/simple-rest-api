@@ -1,6 +1,5 @@
 const path = require('path');
 const fs = require('fs');
-// const factories = require('./factories');
 
 const loadIn = (router) => {
     const normalizedPath = path.join(__dirname, './routes');
@@ -13,6 +12,5 @@ const loadIn = (router) => {
 }
 
 module.exports = {
-    // factories,
     loadIn
 };
