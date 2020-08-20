@@ -1,5 +1,5 @@
-console.log('factory')
+const BranchFactory = require('./BranchFactory');
 
 module.exports = {
-    a: '13c'
+    BranchFactory
 }

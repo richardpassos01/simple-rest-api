@@ -1,10 +1,7 @@
-const BranchController = require('./../controllers/BranchController');
-const brancheController = new BranchController();
-
-
-// const UserFactory = require('../factories/auth');
-
-// const userController = UserFactory.creatreController();
+const {
+    BranchFactory
+} = require('../factories');
+const brancheController = BranchFactory.createController();
 
 const loadIn = (
     router,
